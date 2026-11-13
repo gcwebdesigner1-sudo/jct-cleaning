@@ -17,7 +17,8 @@
   const setMenu = open => {
     nav.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    const label = open ? 'Close menu' : 'Open menu';
+    menuBtn.setAttribute('aria-label', window.jctT ? window.jctT(label) : label);
     document.body.classList.toggle('menu-open', open);
   };
   menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
